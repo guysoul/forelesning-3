@@ -260,6 +260,72 @@
         { name: "Zambia", code: "ZM" },
         { name: "Zimbabwe", code: "ZW" },
       ];
+
+      //map - lager et nytt array basert på properties
+      let allCountryNames = allCountries.map((country) => country.name);
+      //console.log(allCountryNames);
+
+      //filter - vi filterer hvert objekt basert på om de passerer en test og lager et nytt
+      let allCountriesIncludingAn = allCountries.filter((country) =>
+        country.name.toLowerCase().includes("an")
+      );
+      // console.log(allCountriesIncludingAn);
+
+      //find - find er fint å bruke for å finne en unik verdi
+      let norway = allCountries.find(({ code }) => code === "NO");
+      //console.log(norway);
+
+      /*foreach - går gjennom alle plasser i arrayet, men lager ikke et nytt array eller objekt
+       allCountries.forEach((country) => {
+         const countryContainer = document.createElement("div");
+         countryContainer.style.backgroundColor = "green";
+
+         const countryName = document.createElement("p");
+         countryName.innerHTML = country.name;
+
+         countryContainer.append(countryName);
+         document.body.append(countryContainer);
+       });
+       */
+
+      /* searchBtn.addEventListener("click", searchAllCountries);
+
+       function searchAllCountries() {
+         let searchResultArray = allCountries.map((country) =>
+           country.name.includes(searchCountry.value)
+         );
+         console.log(searchResultArray);
+       }
+       */
+
+      /* searchBtn.addEventListener("click", searchAllCountries);
+
+       function searchAllCountries() {
+         let searchResultArray = allCountries.filter((country) =>
+           country.name.includes(searchCountry.value)
+         );
+         console.log(searchResultArray);
+       }
+       */
+
+      /* searchBtn.addEventListener("click", searchAllCountries);
+
+       function searchAllCountries() {
+         let searchResultArray = allCountries.find((country) =>
+           country.name.toLowerCase().includes(searchCountry.value.toLowerCase())
+         );
+         console.log(searchResultArray);
+       }*/
+
+      searchBtn.addEventListener("click", searchAllCountries);
+
+      function searchAllCountries() {
+        allCountries.forEach((country) => {
+          if (country.name.includes(searchCountry.value.toLowerCase())) {
+            console.log(country);
+          }
+        });
+      }
     </script>
   </body>
 </html>
